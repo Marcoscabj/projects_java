@@ -1,0 +1,23 @@
+package proyectoLista;
+
+public class Venta {
+  private Trago t1;
+  private String nombre;
+  private int cantidad;
+  private double precioTotal;
+  
+  public Venta(Puro p,  int cantidad){
+	  t1=p;
+	  nombre= p.getNombre();
+	  precioTotal= cantidad * p.getPrecio();
+  }
+  public double getPrecioTotal() {
+	  return precioTotal;
+  }
+  public int cantidadVentas() {
+	  return cantidad;
+  }
+  public void mostrarVenta() {
+	  System.out.print("trago: "+ nombre + " Cantidad " + cantidad + " el precio total "+ precioTotal);
+  }
+}

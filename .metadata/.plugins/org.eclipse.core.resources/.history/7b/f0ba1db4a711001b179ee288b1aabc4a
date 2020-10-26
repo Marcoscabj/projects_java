@@ -1,0 +1,55 @@
+package com.qualitystream.tutorial;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.By.ByLinkText;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.ClickAndHoldAction;
+
+public class MercuryTours_AutomatedTest {
+	private WebDriver driver;
+	By registerLinkLocator = By.linkText("REGISTER");	
+	By registerPageLocator = By.xpath("//img[@src=\"images/mast_register.gif\"]");
+	By usernameLocator = By.id("email");
+	By passwordLocator = By.name("password");
+	// ahora utilizo un valor de css selector
+	By confirmPassword = By.cssSelector("input[name=\"confirmPassword\"]");
+	By confirmBtnRegister= By.name("submit");
+	@Before
+	public void setUp() throws Exception {
+		System.setProperty("webdriver.chrome.driver","./src/test/resources/chromedriver/chromedriver.exe");
+		driver= new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("http://demo.guru99.com/test/newtours/");
+	
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	//driver.quit():
+	}
+
+	// first test
+	@Test
+	public void registerUser() throws InterruptedException {
+	driver.findElement(registerLinkLocator).click(); // aca llamamos al robot que busque el elemento y por ultimo que de click
+	Thread.sleep(10000);
+	// aca lo que toma el elemento es este caso la imagen y si es afirmativa lo que hace es devolver true
+	if(driver.findElement(registerPageLocator).isDisplayed()) 
+	{
+		driver.findElement(usernameLocator).sendKeys("marcos");
+		driver.findElement(passwordLocator).sendKeys("pass1");
+		driver.findElement(confirmPassword).sendKeys("pass1");
+		driver.findElement(confirmBtnRegister).click();
+	}else {
+		System.out.println("page wasn't found");
+	}
+	
+	}
+
+}

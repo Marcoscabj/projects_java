@@ -1,0 +1,62 @@
+
+package com.qualitystream.tutorial;
+
+import static org.junit.Assert.assertEquals;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+// clase 1 y 3
+public class GoogleSearchTest {
+	
+	private WebDriver driver;
+	
+	@Before
+	public void setUp() throws Exception {
+		System.setProperty("webdriver.chrome.driver","./src/test/resources/chromedriver/chromedriver.exe");
+		driver= new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("http://demo.guru99.com/test/newtours/");
+	
+	}
+	@Test
+	public void testGooglePage() {
+		WebElement searchbox= driver.findElement(By.name("q"));
+		searchbox.clear(); // esto limpia lo que se haya escrito
+		searchbox.sendKeys("quality stream Introduccion a la automatizacion de pruebas de software");
+		searchbox.submit();
+		// implicit wait nos permite esperar que uno o varios elemetos de la pagina si pasa lanza una excepcion
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		assertEquals("quality stream Introduccion a la automatizacion de pruebas de software",driver.getTitle());
+	}
+	@After
+	public void tearDown() {
+		driver.quit();
+	}
+	/* localizadores
+	 * by locator= By.id("id.element") 
+	 * By locator_name = By.name("name_element")
+	 * By  locator_className= By.className("clase_elemento")
+	 * By locator_tagname = By.tagName("tag")
+	 * By locator_linktest= By.LinkTest("texto_link")
+	 * By locator_partialLinkText= By.partialLinkText("string")
+	 * By locator_cssSelector= By.cssSelector("input[name='class']")
+	 * By locator_Xpath = By.xpath("//input[@name='q']) 
+	 
+		 */
+	/*
+	 Steps
+	 1 go link register
+	 2 Complete
+	 Name, password , Confirm password, submit
+	 3 go to home authenticate with user name and password
+	  */
+	
+}
+

@@ -1,0 +1,15 @@
+package com.MarcosIsThinking;
+
+public class WarriorGame {
+
+	public static void main(String[] args) throws InterruptedException {
+		Warrior tor= new DodgeWarrior("thorn",800,130,40, .25);
+		Warrior loki= new Warrior("loki",800,145,80);
+		Battle.startFight(tor,loki);
+		
+		System.out.println("Tor " + loki.teleport());
+		tor.setTeleportAbility(new CantTeleport());
+		System.out.println("tor" + loki.teleport());
+	}
+	
+}

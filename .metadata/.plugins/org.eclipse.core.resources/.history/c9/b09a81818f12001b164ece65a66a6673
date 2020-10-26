@@ -1,0 +1,9 @@
+package com.MarcosIsThinking;
+ import java.io.*;
+import java.sql.Connection;
+import java.util.*;
+
+public class Connetion {
+private Connection Conexion;
+
+}

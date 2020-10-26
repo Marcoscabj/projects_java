@@ -1,0 +1,16 @@
+package com.MarcosIsThinking;
+
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+public class JavaTut2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		List<Integer> oneTo10= IntStream.rangeClosed(1,10).boxed().collect(Collectors.toList());
+		List<Integer> squares = oneTo10.stream().map(x -> x*x).collect(Collectors.toList());
+		for(Integer x: squares) System.out.println(x);
+	}
+
+}

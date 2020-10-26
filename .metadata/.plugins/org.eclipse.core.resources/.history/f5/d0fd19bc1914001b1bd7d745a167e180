@@ -1,0 +1,18 @@
+package com.project.pom;
+
+import org.openqa.selenium.WebDriver;
+
+public class Base {
+	private WebDriver driver;
+	public Base(WebDriver driver) 
+	{ this.driver= driver;
+		
+	}
+	// Creamos un megtodo para la conexion con wedriver
+	public WebDriver connection() {
+		// setamos la property
+		System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver/chromedriver.exe");
+		driver= new ChromeDriver();
+		return driver;
+	}
+}

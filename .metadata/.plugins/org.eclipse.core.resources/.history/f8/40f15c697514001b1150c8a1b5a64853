@@ -1,0 +1,6 @@
+package com.qualitystream.tutorial;
+ //En esta clase ponemos lo quie nos interesa para la pagina de registro
+
+public class PageRegister extends Base {
+
+}

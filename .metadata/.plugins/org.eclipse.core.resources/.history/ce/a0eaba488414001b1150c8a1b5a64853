@@ -1,0 +1,38 @@
+package com.qualitystream.tutorial;
+ import org.openqa.selenium.By;
+//En esta clase ponemos lo quie nos interesa para la pagina de registro
+import org.openqa.selenium.WebDriver;
+
+import com.project.pom.Base;
+public class PageRegister extends Base{
+
+	//Aca copiamos los localizadores
+	By registerLinkLocator = By.linkText("REGISTER");	
+	By registerPageLocator = By.xpath("//img[@src=\"images/mast_register.gif\"]"); // este sirve para ver si la pagina actual esta cargada
+	By usernameLocator = By.id("email");
+	By passwordLocator = By.name("password");
+	// ahora utilizo un valor de css selector
+	By confirmPassword = By.cssSelector("input[name=\"confirmPassword\"]");
+	By confirmBtnRegister= By.name("submit");
+	
+	public PageRegister(WebDriver driver) {
+		super(driver);
+		// TODO Auto-generated constructor stub
+	}
+
+	public void registerUser() throws InterruptedException {
+		click(registerLinkLocator);
+		Thread.sleep(4000);
+		if(isDisplayed(registerPageLocator)) {
+			Type("Marcos23",usernameLocator);
+			Type("Marcos23",passwordLocator);
+			Type("Marcos23",confirmPassword);
+			
+		}
+		
+	}
+
+	public String RegisteredMassage() {
+		return "";
+	}
+}

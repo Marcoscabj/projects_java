@@ -1,0 +1,144 @@
+package com.MarcosIsThinking;
+import java.util.*; // con esto importamos todas las funciones para arrays y otras cosas
+import java.util.stream.IntStream; // crea un metodo para hacer  numeros faciles
+
+
+public class JavaTu {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner le = new Scanner(System.in);// PARA QUE EL USUARIO INGRESE VALORES
+		final double PI= 3.14; // ESTO CREA UNA CONSTANTE
+		System.out.println("hola");
+		int var= 100;
+		int var2, v3; 
+		// asi podemos declarar varias varibles a la vez
+		// variables
+		// \n\ \t\ b\
+		boolean happy= true;
+		char a= 'a';
+		float fnum= 1.111111f; // permite hasta 6 carateres y termina con una f 
+		double f3num=1.1111111111111; // permite hata quince posiciones
+	    // tambien se puede poner notacion cientifica
+		double thousand = 1e+3;
+		System.out.println(thousand);
+		// convertir valores
+		// aqui ens sencillo
+		int smInt=10;
+		long bigInt= smInt;
+		// pero de largo a entero
+		long bigLong= 34443344443L;
+		int bigInt2= (int) bigLong;
+		// pasamos un numero a string
+		String numero= Integer.toString(40);
+		// pasar de string a valores
+		int strInt= Integer.parseInt(numero);
+//		System.out.println(strInt);
+		
+		// ahora vamos por los incrementos
+		int incMe=0;
+		System.out.println(incMe++);
+		System.out.println(++incMe);
+		// Otra forma
+		incMe+= 10;
+		System.out.println(Math.abs(-6));
+		System.out.println(Math.ceil(4.6));
+		System.out.println(Math.floor(3.9));
+		System.out.println(Math.round(5.3));
+		System.out.println(Math.max(5,6));
+		System.out.println(Math.min(2,3));
+		// numeros al azar
+		int minNum= 5;
+		int maxNum= 20;
+		int randNum= minNum + (int)(Math.random() *((maxNum-minNum) + 1));
+		System.out.println(randNum );
+		String name= "Marcos";
+		name+= "this is ma name"; // concatenar
+		String suma= "m"+ 9;
+		System.out.println(name.charAt(3));
+		System.out.println(name.contains("ar"));
+		System.out.println(name.length());
+		// para comparar dos string 
+		String marcos="marcos";
+		System.out.println(marcos.equals(name));
+		// replace busca un valor y lo cambia 
+		System.out.println(name.replace("this is","that is"));
+		// Stringbuilder lo que permite es modificar  losvalores porque o sino no son mutables
+		 StringBuilder cambio = new StringBuilder("yo soy modificable");
+		 System.out.println(cambio.replace(3,6, "SOY"));
+		 System.out.println(cambio.delete(1,3));
+		 System.out.println(cambio.insert(9, "hola"));
+		 System.out.println(cambio.append("final"));
+		 int [] a1= new int[20];
+		 a1[0]=1;
+		 int [] a2= {1,2,34};
+		 int[] oneTo10 = IntStream.rangeClosed(1,15).toArray();
+		 for(int x: oneTo10) System.out.println(x);
+		 String [][] a4= {
+				 {"marcos","adrian"},
+				 {"silvana","camila"}
+		 };
+		 System.out.println(a4[1][1]);
+		 // vamos a copiar un array y podemos ponerle los caracteres
+		 // tambien se puede ordernar con sort
+		 int a6[] = {1,2,3,1,2,8,3};
+		 int a7[] = Arrays.copyOf(a6, 4);
+		 Arrays.sort(a6);
+		 System.out.println(Arrays.toString(a6));
+		 System.out.println(Arrays.toString(a7));
+	     // creamos un arraylist que es dinamico
+		 ArrayList<String> al1= new ArrayList(Arrays.asList(1,2,3,4,5));
+		 ArrayList <Integer> al2= new ArrayList(Arrays.asList(1,2,3,4,5));
+		 al2.set(3, 5);// primero se pone el valor el indece y luego el valor
+		 al2.remove(2); // se pone unicamente el index
+		 // al2.clear(); esto elimina todos los valores
+		 // interator sirve para recorrer los valores  de una lista dinammica
+		 // VER ESTO
+		 /*
+		 while(it.hasNext()) {
+			 
+			 System.out.println(it.hasNext());
+		 }
+		 */
+	
+		 // Scanner con esto valores prmero decimal 
+		 System.out.println("put youe name");
+		 if(le.hasNextLine()) {
+			 String userName= le.nextLine();
+			 System.out.println("your name is " + userName);
+			 
+		 }
+		 // OTRA FORMA DE HACERLO ver 
+	
+	
+		 
+		 // Relational Operators : == != >=
+		 // logical operators : ! °° &&
+		 int age= 12;
+		 if((age>= 5) && (age<= 6)) {
+			 System.out.println("go to kindergarden");
+		 } else if((age>= 7) && (age<= 13)) {
+			 System.out.println("go to middle school");
+		 }else {
+			 System.out.println("stay home");
+		 }
+		 // veamos el switch analiza casos
+		 String lang= "FRENCH";
+		 switch(lang) {
+		 case "spanish": case "castellano":
+	     System.out.println("hola");
+	     break;
+		 case "portuguese":
+			 System.out.println("von dia");
+		 break;
+		 case "FRENCH":
+			 System.out.println("Bonjour");
+		 break;
+		 default:
+			 System.out.println("hello");
+		 
+		 
+		 }
+	}
+
+}
